@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 A mi kis világunk 💖</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom right, #fff0f5, #ffe6f0);
+  color: #ff4f88;
+  overflow-x: hidden;
+}
+
+/* Bal oldali menü */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(to bottom, #ff9ecf, #ff84b2);
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 3px 0 15px rgba(255,105,180,0.3);
+}
+
+.menu-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+
+.menu-photo:hover {
+  transform: scale(1.05);
+}
+
+.menu-button {
+  width: 80%;
+  padding: 12px 0;
+  margin: 8px 0;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ff5c93, #ff84b2);
+  text-decoration: none;
+  box-shadow: 0 6px 12px rgba(255,105,180,0.3);
+  transition: all 0.3s ease;
+  opacity: 0; /* animáció kezdeti állapot */
+}
+
+.menu-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 18px rgba(255,105,180,0.4);
+  background: linear-gradient(135deg, #ff84b2, #ff5c93);
+}
+
+/* Animáció fade-in */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Fő tartalom */
+.main {
+  margin-left: 220px;
+  padding: 50px 30px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s forwards;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  animation: fadeInUp 1.5s forwards;
+}
+
+/* Szívecskék animáció */
+.heart {
+  position: absolute;
+  font-size: 24px;
+  color: #ff5c93;
+  animation: floatUp 4s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-500px) scale(1.5); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- Bal oldali menü -->
+<div class="sidebar">
+  <img src="te_keped.jpg" alt="Rólunk" class="menu-photo">
+  <a href="emlekek.html" class="menu-button">📸 Emlékeink</a>
+  <a href="zene.html" class="menu-button">🎶 A mi zenéink</a>
+  <a href="ezert.html" class="menu-button">❤️ Ezért szeretlek</a>
+  <a href="szerelmes_ppt.html" class="menu-button">💌 Közös PPT</a>
+</div>
+
+<!-- Fő tartalom -->
+<div class="main">
+  <h1>💖 Üdvözöllek a mi kis világunkban! 💖</h1>
+  <p>Ez az oldal nekünk szól, tele emlékekkel, zenékkel és szeretettel 🥰</p>
+</div>
+
+<!-- Szívecskék animáció -->
+<script>
+// Kis szívek véletlenszerűen
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.style.left = Math.random() * window.innerWidth + 'px';
+  heart.style.fontSize = (10 + Math.random() * 20) + 'px';
+  heart.innerText = '❤️';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 4000);
+}
+setInterval(createHeart, 300);
+
+// Menügombok animáció sorrendben
+const buttons = document.querySelectorAll('.menu-button');
+buttons.forEach((btn, i) => {
+  btn.style.animation = `fadeInUp 0.8s forwards ${i*0.2 + 0.5}s`;
+});
+</script>
+
+</body>
+</html>
